@@ -23,6 +23,10 @@ Please, fill the following sections about your project.
 >
 > Hint: some good pointers for finding quality publicly available datasets ([Google dataset search](https://datasetsearch.research.google.com/), [Kaggle](https://www.kaggle.com/datasets), [OpenSwissData](https://opendata.swiss/en/), [SNAP](https://snap.stanford.edu/data/) and [FiveThirtyEight](https://data.fivethirtyeight.com/)).
 
+Dataset 1:  
+Title: Diabetes Health Indicators Dataset  
+URL: https://www.kaggle.com/datasets/mohankrishnathalla/diabetes-health-indicators-dataset  
+
 ### Problematic
 
 > Frame the general topic of your visualization and the main axis that you want to develop.
