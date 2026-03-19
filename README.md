@@ -49,6 +49,21 @@ Students, educators, and non-specialist readers interested in understanding diab
 > Pre-processing of the data set you chose
 > - Show some basic statistics and get insights about the data
 
+**Exploratory Data Analysis – Key Insights**
+
+The dataset comprises 31 variables for 100,000 patients with no missing values, indicating high data quality and minimal preprocessing requirements. Variables were grouped into demographics, lifestyle, medical history, clinical measurements, and diabetes-related descriptors. The identifier variable was excluded from analysis.
+
+Initial visualizations show that demographic variables such as age, gender, and ethnicity are relatively well distributed across diabetic and non-diabetic groups, suggesting no strong bias from these factors alone. Similarly, lifestyle variables (smoking status, alcohol consumption, physical activity, sleep, and diet score) exhibit overlapping distributions between groups, although slight trends are visible—diabetic individuals tend to have lower physical activity, poorer diet scores, and slightly higher screen time.
+![Demographic variables](EDA_Plots/output.png)
+![Lifestyle variables](EDA_Plots/lifestyle.png)
+
+In contrast, medical history variables (family history of diabetes, hypertension, and cardiovascular conditions) display clearer differences, with higher proportions of positive history among diabetic patients. This indicates their relevance as risk factors.
+![Medical variables](EDA_Plots/medical.png)
+
+The most significant separation is observed in clinical and biomarker variables. Especially, distributions of glucose-related measures (fasting glucose, postprandial glucose, HbA1c, and insulin levels) are visibly shifted for diabetic individuals. These variables show reduced overlap between groups, highlighting their strong predictive power.
+
+Overall, the analysis suggests that while demographic and lifestyle factors contribute moderately to diabetes risk, clinical biomarkers and medical history provide the strongest signals for distinguishing diabetic patients.
+
 ### Related work
 
 
