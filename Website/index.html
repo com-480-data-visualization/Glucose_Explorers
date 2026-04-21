@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glucose Explorers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style/base.css" />
+  <link rel="stylesheet" href="style/home.css" />
+  <link rel="stylesheet" href="style/about.css" />
+  <link rel="stylesheet" href="style/world.css" />
+  <link rel="stylesheet" href="style/risks.css" />
+  <link rel="stylesheet" href="style/tabletop.css" />
+  <link rel="stylesheet" href="style/spider.css" />
+
+</head>
+
+<body>
+
+  <!-- ── Navigation ──────────────────────────────── -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo">Data Visualization</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">Overview</a></li>
+      <li><a href="#risks">Factors</a></li>
+      <li><a href="#spider">My score</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── Section 1 · Home ────────────────────────── -->
+  <section id="home">
+    <div class="home-inner">
+      <div class="section-label">Welcome</div>
+      <h1><em>Glucose Explorers</em></h1>
+      <p class="home-sub">
+        Here learn everything about diabetes
+      </p>
+      <div>
+        <a href="#about" class="btn">What is diabetes</a>
+        <a href="#risks" class="btn btn-ghost">Impacting factors</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 2 · About ───────────────────────── -->
+  <section id="about">
+    <div class="section-label">Overview</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>What is diabetes ?</h2>
+        <p>
+          Diabetes is a chronic disease that occurs either when the pancreas does not produce enough 
+          insulin or when the body cannot effectively use the insulin it produces. 
+          Insulin is a hormone that regulates blood glucose. 
+        </p>
+        <br>
+        <a href="#contact" class="btn">Let's check some stats</a>
+      </div>
+      <div class="about-image">
+        <img src="assets/body.png" alt="Body_plot" />
+      </div>
+      <div class="about-info" id="about-info">
+        <p class="about-info"> 
+          Explanation about the selected organ. Eventually the text will change when the user interacts with the graph.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Section 3 · World ───────────────────────── -->
+  <section id="world">
+    <div class="section-label">Overview</div>
+    <div class="world-grid">
+      <div class="world-image">
+        <img src="assets/map.jpg" alt="Map_plot" />
+      </div>
+
+      <div class="world-text">
+        <h2>Diabetes impact</h2>
+        <p>
+          Here we could add some stats about diabetes'impact worldwide, with a map showing the percentage of the population 
+          affected by diabetes, switching between type 1 and type 2
+        </p>
+        <p>
+          More explanations and values
+        </p>
+        <br>
+        <a href="#projects" class="btn">Next</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Section 4 · Risks ───────────────────────── -->
+  <section id="risks">
+    <div class="section-label">Individual risk factors</div>
+    <div class="risks-text">
+      <h2>How do individual parameters influence diabetes ?</h2>
+      <p>
+        Here we will explore which individual risk facors have an influence on diabetes. 
+        The user will be able to choose a risk factor on the graph and see the change in proportions.
+        The graph will also be accompanied by a small explanatory text about the chosen risk factor. 
+      </p>
+    </div>
+    <div class="risks-grid">
+      <div class="risks-image">
+        <img src="assets/risk_factors.png" alt="Risk_factors_plot" />
+      </div>
+      <div class="risks-info" id="risks-info">
+        <p class="risks-info"> 
+          Explanatory text will go here.
+        </p>
+      </div>
+    </div>
+      <br>
+        <a href="#contact" class="btn">Next</a>
+    </div>
+  </section>
+
+  <!-- ── Section 5 · Tabletop ────────────────────── -->
+  <section id="tabletop">
+    <div class="section-label">Lifestyle</div>
+    <div class="tabletop-grid">
+      <div class="tabletop-image">
+        <img src="assets/map.jpg" alt="Map_plot" />
+      </div>
+
+      <div class="tabletop-text">
+        <h2>How does lifestyle influence diabetes ?</h2>
+        <p>
+          This is the section where the tabletop graph will go.
+        </p>
+        <br>
+        <a href="#spider" class="btn">My score</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Section 6 · Spider ─────────────────────── -->
+  <section id="spider">
+    <div class="section-label">My score</div>
+    <div class="spider-grid">
+      <div class="spider-text">
+        <h2>What is your risk compared to the rest of the dataset ?</h2>
+        <p>
+          Here the user enters their own values via sliders covering lifestyle variables such as screen time and physical activity, 
+          as well as simple medical history items such as hypertension. 
+          The chart updates in real time to show where the user sits relative to both the diabetic and non-diabetic populations in the dataset. 
+        </p>
+        <br>
+      </div>
+      <div class="spider">
+        <img src="assets/spider.png" alt="Spider_plot" />
+      </div>
+      <div class="spider-info" id="spider-info">
+        <p class="spider-info"> 
+          Sliders place holder
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+ <!-- ── Section 7 · Footer ─────────────────────── -->
+  <footer>
+    &copy; 2026 · Com-480
+  </footer>
+
+  <!-- ── Scripts ─────────────────────────────────── -->
+  <script>
+    /* Highlight active nav link based on scroll position */
+    const sections  = document.querySelectorAll('section');
+    const navLinks  = document.querySelectorAll('.nav-links a');
+    const navHeight = document.getElementById('navbar').offsetHeight;
+
+    function setActive() {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - navHeight - 60) {
+          current = sec.id;
+        }
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    }
+
+    window.addEventListener('scroll', setActive, { passive: true });
+
+    /* Mobile hamburger */
+    const hamburger = document.getElementById('hamburger');
+    const navLinksEl = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinksEl.classList.toggle('open');
+    });
+
+    /* Close mobile menu on link click */
+    navLinks.forEach(a => {
+      a.addEventListener('click', () => navLinksEl.classList.remove('open'));
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+#risks { background: var(--surface); }
+
+.risks-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 25px;
+    max-width: 1200px;
+    align-items: start;
+}
+
+/*
+#risks h2 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    margin-bottom: 28px;
+}
+*/
+
+.risks-text p {
+    grid-column: 1 / -1;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.risks-image {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.risks-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;        /* crops nicely without distorting */
+    display: block;
+    filter: grayscale(20%);   /* subtle tint to match the dark theme — remove if you prefer full colour */
+}
+
+/* Decorative offset border 
+.risks-image::after {
+    content: '';
+    position: absolute;
+    top: 16px; left: 16px;
+    right: -16px; bottom: -16px;
+    border: 1px solid var(--accent);
+    z-index: -1;
+    pointer-events: none;
+}
+*/
+

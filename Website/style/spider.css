@@ -1,0 +1,79 @@
+#spider { background: var(--surface); }
+
+.spider-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    align-items: start;
+}
+
+#spider h2 {
+    /*font-size: clamp(2.2rem, 5vw, 3.8rem);*/
+    margin-bottom: 28px;
+}
+
+.spider-text p {
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.spider-image {
+    position: relative;
+}
+
+.spider-image img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;        /* crops nicely without distorting */
+    display: block;
+    filter: grayscale(20%);   /* subtle tint to match the dark theme — remove if you prefer full colour */
+}
+
+/* Decorative offset border */
+.spider-image::after {
+    content: '';
+    position: absolute;
+    top: 16px; left: 16px;
+    right: -16px; bottom: -16px;
+    border: 1px solid var(--accent);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Image explanation */
+.spider-info {
+    padding: 28px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    min-height: 200px;
+    position: relative;
+}
+
+.spider-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 16px;
+}
+
+.stat {
+    border-left: 2px solid var(--accent2);
+    padding-left: 20px;
+}
+
+.stat-num {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    color: var(--text);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+}
