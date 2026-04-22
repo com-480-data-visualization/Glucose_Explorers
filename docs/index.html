@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Glucose Explorers</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="style/base.css" />
   <link rel="stylesheet" href="style/home.css" />
   <link rel="stylesheet" href="style/about.css" />
@@ -54,19 +57,20 @@
       <div class="about-text">
         <h2>What is diabetes ?</h2>
         <p>
-          Diabetes is a chronic disease that occurs either when the pancreas does not produce enough 
-          insulin or when the body cannot effectively use the insulin it produces. 
-          Insulin is a hormone that regulates blood glucose. 
+          Diabetes is a chronic disease that occurs either when the pancreas does not produce enough
+          insulin or when the body cannot effectively use the insulin it produces.
+          Insulin is a hormone that regulates blood glucose.
         </p>
         <br>
         <a href="#contact" class="btn">Let's check some stats</a>
       </div>
-      <div class="about-image">
-        <img src="assets/body.png" alt="Body_plot" />
+      <div class="about-image" id="about-silhouette">
+        <!-- Organ hover overlay is injected on top of this image -->
+        <img src="assets/body.png" alt="Body_plot" id="body-fallback" />
       </div>
       <div class="about-info" id="about-info">
-        <p class="about-info"> 
-          Explanation about the selected organ. Eventually the text will change when the user interacts with the graph.
+        <p class="about-info">
+          Hover or tap an organ to see how it connects to diabetes-related indicators in the dataset.
         </p>
       </div>
 
@@ -75,23 +79,34 @@
 
   <!-- ── Section 3 · World ───────────────────────── -->
   <section id="world">
-    <div class="section-label">Overview</div>
+    <div class="section-label">Global View</div>
     <div class="world-grid">
-      <div class="world-image">
-        <img src="assets/map.jpg" alt="Map_plot" />
+      <div class="world-panel">
+        <div class="world-toolbar">
+          <div class="world-toggle" id="world-toggle" role="tablist" aria-label="Diabetes type switch">
+            <button type="button" class="is-active" data-mode="type2" aria-pressed="true">Type 2</button>
+            <button type="button" data-mode="type1" aria-pressed="false">Type 1</button>
+          </div>
+          <p class="world-toolbar-note" id="world-toolbar-note"></p>
+        </div>
+        <div class="world-stage">
+          <svg id="world-map" viewBox="0 0 760 430" role="img" aria-label="Regional diabetes map"></svg>
+        </div>
+        <div class="world-legend" id="world-legend"></div>
+        <div class="world-stat-strip" id="world-stat-strip"></div>
+        <p class="world-source-note">
+          Based on 2024 regional estimates from the IDF Diabetes Atlas. Type 2 is shown as an estimate because IDF
+          publishes regional diabetes prevalence for all diabetes, while also stating that over 90% of cases are type 2.
+        </p>
       </div>
 
       <div class="world-text">
         <h2>Diabetes impact</h2>
-        <p>
-          Here we could add some stats about diabetes'impact worldwide, with a map showing the percentage of the population 
-          affected by diabetes, switching between type 1 and type 2
-        </p>
-        <p>
-          More explanations and values
-        </p>
-        <br>
-        <a href="#projects" class="btn">Next</a>
+        <p class="world-intro" id="world-intro"></p>
+        <div class="world-focus" id="world-focus"></div>
+        <div class="world-metric-list" id="world-metric-list"></div>
+        <p class="world-context" id="world-context"></p>
+        <a href="#risks" class="btn">Risk factors</a>
       </div>
 
     </div>
@@ -103,9 +118,9 @@
     <div class="risks-text">
       <h2>How do individual parameters influence diabetes ?</h2>
       <p>
-        Here we will explore which individual risk facors have an influence on diabetes. 
+        Here we will explore which individual risk facors have an influence on diabetes.
         The user will be able to choose a risk factor on the graph and see the change in proportions.
-        The graph will also be accompanied by a small explanatory text about the chosen risk factor. 
+        The graph will also be accompanied by a small explanatory text about the chosen risk factor.
       </p>
     </div>
     <div class="risks-grid">
@@ -113,13 +128,13 @@
         <img src="assets/risk_factors.png" alt="Risk_factors_plot" />
       </div>
       <div class="risks-info" id="risks-info">
-        <p class="risks-info"> 
+        <p class="risks-info">
           Explanatory text will go here.
         </p>
       </div>
     </div>
-      <br>
-        <a href="#contact" class="btn">Next</a>
+    <br>
+    <a href="#contact" class="btn">Next</a>
     </div>
   </section>
 
@@ -150,9 +165,11 @@
       <div class="spider-text">
         <h2>What is your risk compared to the rest of the dataset ?</h2>
         <p>
-          Here the user enters their own values via sliders covering lifestyle variables such as screen time and physical activity, 
-          as well as simple medical history items such as hypertension. 
-          The chart updates in real time to show where the user sits relative to both the diabetic and non-diabetic populations in the dataset. 
+          Here the user enters their own values via sliders covering lifestyle variables such as screen time and
+          physical activity,
+          as well as simple medical history items such as hypertension.
+          The chart updates in real time to show where the user sits relative to both the diabetic and non-diabetic
+          populations in the dataset.
         </p>
         <br>
       </div>
@@ -160,7 +177,7 @@
         <img src="assets/spider.png" alt="Spider_plot" />
       </div>
       <div class="spider-info" id="spider-info">
-        <p class="spider-info"> 
+        <p class="spider-info">
           Sliders place holder
         </p>
       </div>
@@ -168,16 +185,17 @@
     </div>
   </section>
 
- <!-- ── Section 7 · Footer ─────────────────────── -->
+  <!-- ── Section 7 · Footer ─────────────────────── -->
   <footer>
     &copy; 2026 · Com-480
   </footer>
 
   <!-- ── Scripts ─────────────────────────────────── -->
+  <link rel="stylesheet" href="style/organs.css" />
   <script>
     /* Highlight active nav link based on scroll position */
-    const sections  = document.querySelectorAll('section');
-    const navLinks  = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
     const navHeight = document.getElementById('navbar').offsetHeight;
 
     function setActive() {
@@ -207,6 +225,9 @@
       a.addEventListener('click', () => navLinksEl.classList.remove('open'));
     });
   </script>
+  <script src="assets/world.js"></script>
+  <script type="module" src="assets/organ.js"></script>
 
 </body>
+
 </html>

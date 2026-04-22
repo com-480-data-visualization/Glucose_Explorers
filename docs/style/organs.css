@@ -1,0 +1,80 @@
+#organ-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.organ-visual {
+    opacity: 0.18;
+    transform-origin: center;
+    transition: opacity 160ms ease, transform 160ms ease, filter 160ms ease;
+}
+
+.organ-visual.is-active {
+    opacity: 0.72;
+    transform: scale(1.03);
+    filter: drop-shadow(0 8px 14px rgba(38, 73, 113, 0.18));
+}
+
+.organ-region {
+    cursor: pointer;
+}
+
+.organ-hit-area {
+    fill: rgba(5, 15, 25, 0.001);
+    stroke: transparent;
+    stroke-width: 12;
+}
+
+.organ-region:focus-visible .organ-hit-area,
+.organ-region.is-active .organ-hit-area {
+    fill: rgba(94, 145, 201, 0.12);
+    stroke: rgba(94, 145, 201, 0.28);
+}
+
+#about-info {
+    transition: opacity 120ms ease;
+}
+
+.about-info-kicker {
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.about-info-title {
+    margin: 0 0 14px;
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.about-info-copy {
+    margin-bottom: 18px;
+    line-height: 1.7;
+}
+
+.organ-metrics {
+    display: grid;
+    gap: 12px;
+}
+
+.organ-variable {
+    display: grid;
+    gap: 4px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.organ-variable .var-name {
+    font-weight: 600;
+}
+
+.organ-variable .var-stat {
+    display: block;
+    color: var(--muted);
+    font-size: 0.94rem;
+    line-height: 1.5;
+}
