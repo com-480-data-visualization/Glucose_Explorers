@@ -76,6 +76,17 @@
     line-height: 1.6;
 }
 
+.world-source-note a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(200, 169, 110, 0.35);
+}
+
+.world-source-note a:hover {
+    color: var(--text);
+    border-bottom-color: rgba(232, 226, 217, 0.7);
+}
+
 .world-toolbar-note {
     max-width: 280px;
     text-align: right;

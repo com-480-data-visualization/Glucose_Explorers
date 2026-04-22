@@ -1,5 +1,9 @@
-// Regional values are based on IDF Diabetes Atlas 2024 pages.
-// Type 2 is rendered as a proxy from regional diabetes prevalence because IDF states that over 90% of diabetes is type 2.
+// Regional values are based on IDF Diabetes Atlas 2024 regional tables.
+// Type 2 is rendered as a proxy from adult diabetes prevalence because IDF
+// publishes regional adult prevalence for all diabetes and states that over
+// 90% of diabetes is type 2.
+// Type 1 is rendered from direct regional counts in the IDF all-age type 1
+// table. This view compares absolute burden and does not estimate prevalence.
 const worldModes = {
     type2: {
         label: 'Type 2',
@@ -12,12 +16,12 @@ const worldModes = {
     },
     type1: {
         label: 'Type 1',
-        intro: 'Type 1 is far less common than type 2, but the regional pattern is different. This view uses IDF 2024 type 1 counts and divides them by each region\'s 0-79 population to show an approximate footprint.',
-        method: 'Approximate share of the 0-79 population living with type 1 diabetes',
-        legendLabel: 'Approximate prevalence (%)',
+        intro: 'Type 1 is far less common than type 2, but the regional pattern is different. This view uses direct IDF 2024 regional counts of people living with type 1 diabetes and compares absolute burden across regions.',
+        method: 'Regional count of people living with type 1 diabetes (all ages)',
+        legendLabel: 'People living with type 1 (millions)',
         palette: ['#243b40', '#3f7c74', '#87c2b6'],
-        defaultRegion: 'nac',
-        summaryLabel: 'Approximate type 1 footprint'
+        defaultRegion: 'eur',
+        summaryLabel: 'Type 1 regional burden'
     }
 };
 
@@ -43,8 +47,7 @@ const worldRegions = [
         diabetesAdults2024: 56.1964,
         diabetesAdults2050: 68.1029,
         ageStandardisedPrevalence: 13.8,
-        type1PeopleAllAges: 1.85331,
-        population0To79: 514.1753225
+        type1PeopleAllAges: 1.85331
     },
     {
         id: 'saca',
@@ -59,8 +62,7 @@ const worldRegions = [
         diabetesAdults2024: 35.3669,
         diabetesAdults2050: 51.4998,
         ageStandardisedPrevalence: 10.1,
-        type1PeopleAllAges: 0.797112,
-        population0To79: 505.8606865
+        type1PeopleAllAges: 0.797112
     },
     {
         id: 'eur',
@@ -75,8 +77,7 @@ const worldRegions = [
         diabetesAdults2024: 65.5671,
         diabetesAdults2050: 72.4071,
         ageStandardisedPrevalence: 8.0,
-        type1PeopleAllAges: 2.740885,
-        population0To79: 892.272404
+        type1PeopleAllAges: 2.740885
     },
     {
         id: 'afr',
@@ -91,8 +92,7 @@ const worldRegions = [
         diabetesAdults2024: 24.5856,
         diabetesAdults2050: 59.5265,
         ageStandardisedPrevalence: 5.0,
-        type1PeopleAllAges: 0.351955,
-        population0To79: 1221.972263
+        type1PeopleAllAges: 0.351955
     },
     {
         id: 'mena',
@@ -107,8 +107,7 @@ const worldRegions = [
         diabetesAdults2024: 84.6887,
         diabetesAdults2050: 162.6165,
         ageStandardisedPrevalence: 19.9,
-        type1PeopleAllAges: 1.410471,
-        population0To79: 838.6703885
+        type1PeopleAllAges: 1.410471
     },
     {
         id: 'sea',
@@ -123,8 +122,7 @@ const worldRegions = [
         diabetesAdults2024: 106.8702,
         diabetesAdults2050: 184.5094,
         ageStandardisedPrevalence: 10.8,
-        type1PeopleAllAges: 1.005022,
-        population0To79: 1665.5651975
+        type1PeopleAllAges: 1.005022
     },
     {
         id: 'wp',
@@ -140,10 +138,12 @@ const worldRegions = [
         diabetesAdults2024: 215.4407,
         diabetesAdults2050: 253.81,
         ageStandardisedPrevalence: 11.1,
-        type1PeopleAllAges: 0.99099,
-        population0To79: 2330.516035
+        type1PeopleAllAges: 0.99099
     }
 ];
+
+const TYPE2_SHARE_PROXY = 0.9;
+const globalType1Total = worldRegions.reduce((sum, region) => sum + region.type1PeopleAllAges, 0);
 
 function mixHexColors(start, end, amount) {
     const startInt = Number.parseInt(start.slice(1), 16);
@@ -172,29 +172,29 @@ function formatPercent(value, digits = 1) {
     return `${value.toFixed(digits)}%`;
 }
 
+function formatLegendValue(mode, value) {
+    return mode === 'type1' ? formatMillions(value) : formatPercent(value);
+}
+
 function getRegionMetrics(region) {
-    const type2Estimate = region.ageStandardisedPrevalence * 0.9;
-    const type1Approx = (region.type1PeopleAllAges / region.population0To79) * 100;
+    const type2Estimate = region.ageStandardisedPrevalence * TYPE2_SHARE_PROXY;
     const growthTo2050 = ((region.diabetesAdults2050 - region.diabetesAdults2024) / region.diabetesAdults2024) * 100;
-    const shareOfGlobalType1 = (region.type1PeopleAllAges / 9.149745) * 100;
+    const shareOfGlobalType1 = (region.type1PeopleAllAges / globalType1Total) * 100;
 
     return {
         type2: {
             value: type2Estimate,
-            display: formatPercent(type2Estimate),
-            secondary: `Adult diabetes prevalence in the source table: ${formatPercent(region.ageStandardisedPrevalence)}`,
+            secondary: `Source adult diabetes prevalence in the IDF table: ${formatPercent(region.ageStandardisedPrevalence)}`,
             cards: [
-                { label: 'Estimated prevalence', value: formatPercent(type2Estimate) },
-                { label: 'Adults with diabetes, 2024', value: formatMillions(region.diabetesAdults2024) },
-                { label: 'Projected growth by 2050', value: formatPercent(growthTo2050) }
+                { label: 'Estimated type 2 prevalence', value: formatPercent(type2Estimate) },
+                { label: 'Adults with diabetes (all types), 2024', value: formatMillions(region.diabetesAdults2024) },
+                { label: 'Projected adult diabetes growth (all types) by 2050', value: formatPercent(growthTo2050) }
             ]
         },
         type1: {
-            value: type1Approx,
-            display: formatPercent(type1Approx, 2),
-            secondary: `People living with type 1: ${formatMillions(region.type1PeopleAllAges)}`,
+            value: region.type1PeopleAllAges,
+            secondary: `Direct count from the IDF all-age type 1 table: ${formatMillions(region.type1PeopleAllAges)}`,
             cards: [
-                { label: 'Approx. prevalence', value: formatPercent(type1Approx, 2) },
                 { label: 'People with type 1, 2024', value: formatMillions(region.type1PeopleAllAges) },
                 { label: 'Share of global type 1 total', value: formatPercent(shareOfGlobalType1) }
             ]
@@ -273,8 +273,8 @@ function initWorldImpact() {
             <div class="world-legend-label">${worldModes[mode].legendLabel}</div>
             <div class="world-legend-scale" style="background: linear-gradient(90deg, ${start} 0%, ${end} 100%);"></div>
             <div class="world-legend-range">
-                <span>${formatPercent(min, mode === 'type1' ? 2 : 1)}</span>
-                <span>${formatPercent(max, mode === 'type1' ? 2 : 1)}</span>
+                <span>${formatLegendValue(mode, min)}</span>
+                <span>${formatLegendValue(mode, max)}</span>
             </div>
         `;
     }
@@ -321,8 +321,8 @@ function initWorldImpact() {
         `).join('');
 
         context.textContent = mode === 'type2'
-            ? `${region.name} sits in a world where most diabetes is type 2. The map lets you compare where adult prevalence is densest and where absolute case counts are projected to keep rising.`
-            : `${region.name} shows how different type 1 geography can look. Even when the percentage remains relatively low, the number of people who need lifelong insulin support is still substantial.`;
+            ? `${region.name} is shown with an estimated type 2 prevalence proxy. The prevalence signal is type-2-oriented, while the volume and growth cards still come from IDF adult diabetes tables for all diabetes.`
+            : `${region.name} is shown using direct IDF counts of people living with type 1 diabetes across all ages. This view compares absolute regional burden rather than estimating a prevalence.`;
     }
 
     function render() {
