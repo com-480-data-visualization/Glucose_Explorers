@@ -129,14 +129,27 @@
         The graph will also be accompanied by a small explanatory text about the chosen risk factor.
       </p>
     </div>
-    <div class="risks-grid">
-      <div class="risks-image">
-        <img src="assets/risk_factors.png" alt="Risk_factors_plot" />
+    <div class="risks-image" style="padding: 20px;">
+      
+      <div style="text-align: center; margin-bottom: 20px;">
+        <label for="risk-category" style="font-weight: 500; font-size: 1.1rem;">
+          Select a risk factor / variable:
+        </label><br><br>
+        <select id="risk-category" style="padding: 12px 16px; font-size: 1.05rem; width: 420px; border-radius: 8px; border: 2px solid #3498db;color: white;">
+        </select>
       </div>
-      <div class="risks-info" id="risks-info">
-        <p class="risks-info">
-          Explanatory text will go here.
-        </p>
+
+      <svg id="risks-chart" width="100%" height="460" style="max-width: 920px; margin: 0 auto; display: block;"></svg>
+
+      <div style="display: flex; justify-content: center; gap: 40px; margin-top: 20px; font-size: 1.05rem; color: white;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="width: 24px; height: 24px; background: #e74c3c; border-radius: 4px;"></div>
+          <span><strong>Diabetics</strong> (diagnosed_diabetes = 1)</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="width: 24px; height: 24px; background: #3498db; border-radius: 4px;"></div>
+          <span><strong>Non Diabetic</strong> (diagnosed_diabetes = 0)</span>
+        </div>
       </div>
     </div>
     <br>
@@ -231,8 +244,11 @@
       a.addEventListener('click', () => navLinksEl.classList.remove('open'));
     });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
   <script src="assets/world.js"></script>
   <script type="module" src="assets/organ.js"></script>
+  <script src="assets/risks.js"></script>
 
 </body>
 
