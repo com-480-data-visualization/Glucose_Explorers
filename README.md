@@ -81,7 +81,7 @@ We make these connections easy to understand and visually intuitive, so users ca
 
 **10% of the final grade**
 
-URL to the website: https://glucose-explorers-code.vercel.app
+URL to the website: https://com-480-data-visualization.github.io/Glucose_Explorers/
 
 ## Milestone 3 (29th May, 5pm)
 
