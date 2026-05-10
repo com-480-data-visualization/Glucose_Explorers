@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function drawRadar() {
         const { width, height, radius } = getDimensions();
         const rScale = d3.scaleLinear().domain([0, 100]).range([0, radius]);
+        const isMobile = width < 600;
         
         const radarLine = d3.lineRadial()
             .angle((_, i) => getAngle(i) + Math.PI / 2)
@@ -63,6 +64,61 @@ document.addEventListener("DOMContentLoaded", () => {
             .curve(d3.curveLinearClosed);
 
         svg.attr("viewBox", `0 0 ${width} ${height}`).selectAll("*").remove();
+        if(isMobile){
+            const legendY = height - 10;
+            const startX = 40;
+            const ly=height -20
+            svg.append("line")
+            .attr("x1", startX).attr("y1", legendY)
+            .attr("x2", startX + 35).attr("y2", legendY)
+            .attr("stroke", "#e74c3c").attr("stroke-width", 3.5);
+            svg.append("text")
+            .attr("x", startX + 45).attr("y", legendY + 4)
+            .text("Diabetics").attr("fill", "black").attr("font-size", "13px");
+
+            svg.append("line")
+            .attr("x1", startX).attr("y1", legendY -14)
+            .attr("x2", startX + 35).attr("y2", legendY -14)
+            .attr("stroke", "#3498db").attr("stroke-width", 3.5);
+            svg.append("text")
+            .attr("x", startX + 45).attr("y", legendY -14)
+            .text("Non-Diabetics").attr("fill", "black").attr("font-size", "13px");
+
+            svg.append("line")
+            .attr("x1", startX).attr("y1", legendY-28)
+            .attr("x2", startX + 35).attr("y2", legendY-28)
+            .attr("stroke", "#4a7c6f").attr("stroke-width", 3.5);
+            svg.append("text")
+            .attr("x", startX + 45).attr("y", legendY -28)
+            .text("You").attr("fill", "black").attr("font-size", "13px");
+        }
+        else{
+            const startX = width - 230;
+            const legendY = 45;
+            svg.append("line")
+            .attr("x1", startX).attr("y1", legendY)
+            .attr("x2", startX + 35).attr("y2", legendY)
+            .attr("stroke", "#e74c3c").attr("stroke-width", 3.5);
+            svg.append("text")
+            .attr("x", startX + 45).attr("y", legendY + 4)
+            .text("Diabetics").attr("fill", "black").attr("font-size", "15px");
+
+            svg.append("line")
+            .attr("x1", startX).attr("y1", legendY -14)
+            .attr("x2", startX + 35).attr("y2", legendY -14)
+            .attr("stroke", "#3498db").attr("stroke-width", 3.5);
+            svg.append("text")
+            .attr("x", startX + 45).attr("y", legendY -14)
+            .text("Non-Diabetics").attr("fill", "black").attr("font-size", "15px");
+
+            svg.append("line")
+            .attr("x1", startX).attr("y1", legendY-28)
+            .attr("x2", startX + 35).attr("y2", legendY-28)
+            .attr("stroke", "#4a7c6f").attr("stroke-width", 3.5);
+            svg.append("text")
+            .attr("x", startX + 45).attr("y", legendY -28)
+            .text("You").attr("fill", "black").attr("font-size", "15px");
+        }
         const g = svg.append("g").attr("transform", `translate(${width/2}, ${height/2})`);
 
         [20, 40, 60, 80, 100].forEach(d => {
@@ -85,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .attr("dominant-baseline", "middle")
                 .attr("font-size", width < 500 ? "10px" : "13px")
                 .attr("font-weight", "700")
-                .attr("fill", "#374151")
+                .attr("fill", "black")
                 .text(cat.name);
         });
 

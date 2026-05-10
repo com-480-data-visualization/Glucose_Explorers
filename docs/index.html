@@ -135,19 +135,14 @@
         which variables have the strongest correlation with diabetes.
       </p>
     </div>
-    <div class="risks-image" style="padding: 20px;">
-      
-      <div style="text-align: center; margin-bottom: 20px;">
-        <label for="risk-category" style="font-weight: 500; font-size: 1.1rem;">
-          Select a risk factor / variable:
-        </label><br><br>
-        <select id="risk-category" style="padding: 12px 16px; font-size: 1.05rem; width: 420px; border-radius: 8px; border: 2px solid #3498db;color: black;">
-        </select>
-      </div>
-
-      <svg id="risks-chart" width="100%" height="460" style="max-width: 920px; margin: 0 auto; display: block;"></svg>
-
+    <div class="risks-image">
+    <div class="risks-select-wrapper">
+        <label for="risk-category">Select a risk factor / variable:</label>
+        <select id="risk-category"></select>
     </div>
+    
+    <svg id="risks-chart" width="100%" height="460"></svg>
+</div>
     </div>
   </section>
 
