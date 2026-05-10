@@ -3,7 +3,6 @@
 let fullDataset = [];
 const svg = d3.select("#risks-chart");
 
-// Lista delle variabili che vuoi mostrare nel dropdown (puoi modificarla facilmente)
 const relevantVariables = [
     "age",
     "bmi",
@@ -104,14 +103,12 @@ function updateDensityChart(variable) {
         .y1(d => yScale(d[1]))
         .curve(d3.curveBasis);
 
-    // Curve + aree
     svg.append("path").datum(densityDiab).attr("fill", "#e74c3c").attr("opacity", 0.13).attr("d", area);
     svg.append("path").datum(densityNon).attr("fill", "#3498db").attr("opacity", 0.13).attr("d", area);
 
     svg.append("path").datum(densityDiab).attr("fill", "none").attr("stroke", "#e74c3c").attr("stroke-width", 3.5).attr("d", line);
     svg.append("path").datum(densityNon).attr("fill", "none").attr("stroke", "#3498db").attr("stroke-width", 3.5).attr("d", line);
 
-    // Assi
     svg.append("g")
         .attr("transform", `translate(0, ${height - margin.bottom})`)
         .call(d3.axisBottom(xScale).ticks(8));
@@ -120,7 +117,6 @@ function updateDensityChart(variable) {
         .attr("transform", `translate(${margin.left}, 0)`)
         .call(d3.axisLeft(yScale).ticks(6));
 
-    // Label
     svg.append("text")
         .attr("x", width / 2)
         .attr("y", height - 25)
@@ -139,7 +135,6 @@ function updateDensityChart(variable) {
         .attr("fill","white")
         .text("Density");
 
-    // Legend
     const ly = 60;
     svg.append("line").attr("x1", width-190).attr("y1", ly).attr("x2", width-150).attr("y2", ly).attr("stroke","#e74c3c").attr("stroke-width",4);
     svg.append("text").attr("x", width-140).attr("y", ly+4).text("Diabetics").attr("font-size","14px").attr("fill","white");
@@ -149,7 +144,6 @@ function updateDensityChart(variable) {
 
 }
 
-// Kernel Density functions
 function kernelDensityEstimator(kernel, X) {
     return function(V) {
         return X.map(x => [x, d3.mean(V, v => kernel(x - v))]);
