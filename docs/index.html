@@ -149,21 +149,27 @@
   <!-- ── Section 5 · Tabletop ────────────────────── -->
   <section id="tabletop">
     <div class="section-label">Lifestyle</div>
-    <div class="tabletop-grid">
-      <div class="tabletop-image">
-        <img src="assets/map.jpg" alt="Map_plot" />
-      </div>
 
-      <div class="tabletop-text">
-        <h2>How does lifestyle influence diabetes ?</h2>
-        <p>
-          This is the section where the tabletop graph will go.
-        </p>
-        <br>
-        <a href="#spider" class="btn">My score</a>
-      </div>
-
+    <!-- top: title text -->
+    <div class="tabletop-text">
+      <h2>How does lifestyle influence diabetes?</h2>
+      <p>
+        Move the sliders to see how daily habits affect your estimated risk.
+      </p>
+      <br>
     </div>
+
+      <!-- bottom: sliders + scene side by side -->
+    <div class="tabletop-wrapper">
+      <div class="controls" id="controls-container">
+        <!-- sliders -->
+      </div>
+      <div class="scene-container" id="scene-container">
+        <!-- SVG injected by tabletop.js -->
+      </div>
+      <a href="#spider" class="btn">My score</a>
+    </div>
+
   </section>
 
   <!-- ── Section 6 · Spider ─────────────────────── -->
@@ -256,6 +262,8 @@
   <script src="assets/world.js"></script>
   <script type="module" src="assets/organ.js"></script>
   <script src="assets/risks.js"></script>
+  <script src="assets/lifestyle_model.js"></script>
+  <script src="assets/tabletop.js"></script>
   <script src="assets/spider.js"></script>
 
 </body>
