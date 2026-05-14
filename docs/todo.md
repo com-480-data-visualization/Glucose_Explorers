@@ -21,7 +21,7 @@
 - [ ] Add explanaitions for every variable
 - [ ] Move the graph to the right and the text on the left
 - [ ] Add the button to go next page
-### Risk comparison
+### Lifestyle
 - [ ] Fix height to make it fit
 
 
