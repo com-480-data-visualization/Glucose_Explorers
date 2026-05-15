@@ -24,9 +24,7 @@ html {
 }
 
 /* ── Scrollbar ────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar { width: 0px; }
 
 /* ── Nav ──────────────────────────────────────── */
 nav {

@@ -29,7 +29,9 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#about">Overview</a></li>
+      <li><a href="#world">Global view</a></li>
       <li><a href="#risks">Factors</a></li>
+      <li><a href="#tabletop">Lifestyle</a></li>
       <li><a href="#spider">My score</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -123,28 +125,31 @@
   <!-- ── Section 4 · Risks ───────────────────────── -->
   <section id="risks">
     <div class="section-label">Individual risk factors</div>
-    <div class="risks-text">
-      <h2>Understanding the Odds</h2>
-      <p>
-        Not all risk factors are created equal. Some, like age or family history, are beyond our control, 
-        while others are deeply tied to our daily choices. Explore how different parameters shift the 
-        balance between health and diagnosis. 
-      </p>
-      <p>
-        <strong>Select a factor below</strong> to see the distribution within our dataset and understand 
-        which variables have the strongest correlation with diabetes.
-      </p>
-    </div>
-    <div class="risks-image">
-    <div class="risks-select-wrapper">
-        <label for="risk-category">Select a risk factor / variable:</label>
-        <select id="risk-category"></select>
-    </div>
     
-    <svg id="risks-chart" width="100%" height="460"></svg>
-</div>
+    <div class="risks-container">
+        <div class="risks-text">
+            <h2>Understanding the Odds</h2>
+            <p>
+                Not all risk factors are equal. Some are beyond our control, 
+                while others are tied to our daily choices. Explore how different 
+                parameters shift the balance between health and diagnosis.
+            </p>
+
+            <div class="risks-description-box">
+                <h3 id="glossary-title">Factor Glossary</h3>
+                <p id="glossary-text">Select a factor to see its impact on diabetes.</p>
+            </div>
+        </div>
+
+        <div class="risks-image">
+            <div class="risks-select-wrapper">
+                <label for="risk-category">Select a risk factor / variable:</label>
+                <select id="risk-category"></select>
+            </div>
+            <svg id="risks-chart"></svg>
+        </div>
     </div>
-  </section>
+</section>
 
   <!-- ── Section 5 · Tabletop ────────────────────── -->
   <section id="tabletop">
