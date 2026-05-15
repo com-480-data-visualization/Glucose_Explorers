@@ -16,21 +16,17 @@
 }
 
 html {
-    scroll-behavior: smooth; 
-    scroll-snap-type: y mandatory;
-    scroll-padding-top: 64px;
+    scroll-behavior: smooth;
     background: var(--bg);
     color: var(--text);
     font-family: var(--sans);
     font-weight: 300;
 }
 
-footer {
-  scroll-snap-align: end;
-}
 /* ── Scrollbar ────────────────────────────────── */
-::-webkit-scrollbar { width: 0px; }
-
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
 /* ── Nav ──────────────────────────────────────── */
 nav {
@@ -108,10 +104,7 @@ nav {
 
 /* ── Shared section structure ─────────────────────────────────── */
 section {
-    height: calc(100vh - var(--nav-h));          
-    max-height: calc(100vh - var(--nav-h));          
-    scroll-snap-align:start; 
-    scroll-snap-stop: always; 
+    min-height: 100vh;
     padding: calc(var(--nav-h) + 80px) 48px 80px;
     display: flex;
     flex-direction: column;
