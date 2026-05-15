@@ -1,7 +1,7 @@
 #risks {
    background: var(--surface);
     padding: 8vh 4vw;
-    min-height: 100vh;
+    min-height: 100vh ;
     color: var(--text); 
     display: flex;
     flex-direction: column;
