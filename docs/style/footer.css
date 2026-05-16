@@ -1,9 +1,10 @@
+
 footer {
-    color: black;
-    background-color: #f1f1f1;
-    margin-top: 0; 
-    padding: 60px 20px 30px 20px;
-    font-family: 'DM Sans', sans-serif;
+    color: var(--A_text);
+    background-color: var(--card_bg);
+    margin-top: 0;
+    padding: 60px 20px 30px;
+    font-family: var(--sans);
     width: 100%;
     display: block;
 }
@@ -12,28 +13,30 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 40px;
     padding-bottom: 40px;
-    border-bottom: 1px solid #374151;
+    border-bottom: 1px solid var(--dividers);
 }
 
+
 .footer-brand h3 {
-    font-family: 'DM Serif Display', serif;
+    font-family: var(--serif);
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: rgb(200, 169, 110); 
+    color: var(--B-text);
     letter-spacing: 0.5px;
 }
 
 .footer-brand p {
-    color: black;
+    color: var(--A_text);
     line-height: 1.6;
     font-size: 0.95rem;
     max-width: 300px;
 }
+
 
 .footer-links {
     display: flex;
@@ -44,7 +47,7 @@ footer {
 .footer-links h2 {
     font-size: 1.1rem;
     margin: 0;
-    color: black;
+    color: var(--A_text);
 }
 
 .authors-list {
@@ -54,7 +57,7 @@ footer {
 }
 
 .authors-list a {
-    color: black;
+    color: var(--links);
     text-decoration: none;
     font-size: 0.95rem;
     transition: all 0.3s ease;
@@ -62,13 +65,14 @@ footer {
 }
 
 .authors-list a:hover {
-    color: #4a7c6f; 
+    color: var(--accent3);
     transform: translateX(7px);
 }
 
+
 .footer-bottom {
     max-width: 1200px;
-    margin: 30px auto 0 auto;
+    margin: 30px auto 0;
 }
 
 .footer-bottom-wrapper {
@@ -80,7 +84,7 @@ footer {
 }
 
 .footer-bottom p {
-    color: black;
+    color: var(--A_text);
     font-size: 0.85rem;
     margin: 0;
 }
@@ -88,7 +92,7 @@ footer {
 .repo-link {
     text-decoration: none;
     font-weight: bold;
-    color: black;
+    color: var(--links);
     font-size: 0.85rem;
 }
 
@@ -98,16 +102,19 @@ footer {
 }
 
 .repo-link:hover span {
-    color: #4a7c6f;
+    color: var(--accent3);
     transform: translateX(7px);
 }
 
+
 @media (max-width: 768px) {
+
     .footer-content {
         flex-direction: column;
         text-align: center;
         align-items: center;
     }
+
     .footer-bottom-wrapper {
         flex-direction: column;
         text-align: center;

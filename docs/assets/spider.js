@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
             svg.append("line")
             .attr("x1", startX).attr("y1", legendY-28)
             .attr("x2", startX + 35).attr("y2", legendY-28)
-            .attr("stroke", "#4a7c6f").attr("stroke-width", 3.5);
+            .attr("stroke", "#3A9E78").attr("stroke-width", 3.5);
             svg.append("text")
             .attr("x", startX + 45).attr("y", legendY -28)
             .text("You").attr("fill", "black").attr("font-size", "13px");
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
             svg.append("line")
             .attr("x1", startX).attr("y1", legendY-28)
             .attr("x2", startX + 35).attr("y2", legendY-28)
-            .attr("stroke", "#4a7c6f").attr("stroke-width", 3.5);
+            .attr("stroke", "#3A9E78").attr("stroke-width", 3.5);
             svg.append("text")
             .attr("x", startX + 45).attr("y", legendY -28)
             .text("You").attr("fill", "black").attr("font-size", "15px");
@@ -153,14 +153,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const normalizedUser = userValues.map((v, i) => normalizeUserValue(v, i));
         g.append("path").datum(normalizedUser).attr("d", radarLine)
-            .attr("fill", "#4a7c6f").attr("fill-opacity", 0.35)
-            .attr("stroke", "#4a7c6f").attr("stroke-width", 4);
+            .attr("fill", "#3A9E78").attr("fill-opacity", 0.35)
+            .attr("stroke", "#3A9E78").attr("stroke-width", 4);
 
         g.selectAll(".user-dot").data(normalizedUser).join("circle")
             .attr("cx", (d, i) => rScale(d) * Math.cos(getAngle(i)))
             .attr("cy", (d, i) => rScale(d) * Math.sin(getAngle(i)))
             .attr("r", width < 500 ? 4 : 6)
-            .attr("fill", "#4a7c6f").attr("stroke", "white");
+            .attr("fill", "#3A9E78").attr("stroke", "white");
     }
 
     function createSliders() {

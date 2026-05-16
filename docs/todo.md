@@ -19,6 +19,7 @@
 - [X] Fix height to make it fit
 - [X] Add explanaitions for every variable
 - [X] Move the graph to the right and the text on the left
+- [ ] Fix mobile view graph
 ### Lifestyle
 - [ ] Fix height to make it fit
 
