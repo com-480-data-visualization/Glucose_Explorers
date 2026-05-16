@@ -1,4 +1,6 @@
-#about { background: var(--surface); }
+#about { background: var(--B_bg);
+         color: var(--B_text);
+}
 
 .about-grid {
     display: grid;
@@ -48,7 +50,7 @@
 .about-info {
     padding: 28px;
     border: 1px solid var(--border);
-    background: var(--surface);
+    background: var(--B_bg);
     min-height: 200px;
     position: relative;
 }

@@ -2,14 +2,21 @@
 /* ── Reset & base ─────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+
 :root {
-    --bg:      #f1f1f1;
-    --surface: #161616;
+    --A_bg:    #EAF1FA;
+    --A_text:  #1A2A45;
+    --B_bg:    #2A4A80;
+    --B_text:  #EAF1FA;
+    --card_bg: #F0F6FF;
+    --muted:   #A8C4EE;
+    --dividers:#C5D9F2;
+    --links:   #4A7AB5;
     --border:  #2a2a2a;
-    --text:    #e8e2d9;
-    --muted:   #6b6560;
-    --accent:  #c8a96e;       /* warm gold */
-    --accent2: #4a7c6f;       /* deep teal */
+    --accent1: #E8C87A;
+    --accent2: #D64E4E;       
+    --accent3: #3A9E78;       
+
     --serif:   'DM Serif Display', Georgia, serif;
     --sans:    'DM Sans', system-ui, sans-serif;
     --nav-h:   64px;
@@ -17,8 +24,8 @@
 
 html {
     scroll-behavior: smooth;
-    background: var(--bg);
-    color: var(--text);
+    background: var(--A_bg);
+    color: var(--B_bg);
     font-family: var(--sans);
     font-weight: 300;
 }
@@ -36,7 +43,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 0 48px;
-    background: rgba(14, 14, 14, 0.85);
+    background: var(--card_bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
@@ -46,7 +53,7 @@ nav {
 .nav-logo {
     font-family: var(--serif);
     font-size: 1.25rem;
-    color: var(--accent);
+    color: var(--B_bg);
     letter-spacing: 0.02em;
     text-decoration: none;
 }
@@ -62,7 +69,7 @@ nav {
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--links);
     text-decoration: none;
     position: relative;
     padding-bottom: 4px;
@@ -79,7 +86,7 @@ nav {
 }
 
 .nav-links a:hover,
-.nav-links a.active { color: var(--text); }
+.nav-links a.active { color: var(--A_text); }
 .nav-links a:hover::after,
 .nav-links a.active::after { width: 100%; }
 
@@ -96,7 +103,7 @@ nav {
 .hamburger span {
     display: block;
     width: 24px; height: 2px;
-    background: var(--text);
+    background: var(--A_text);
     transition: all 0.3s;
 }
 
@@ -139,8 +146,8 @@ h1, h2 {
 .btn {
     display: inline-block;
     padding: 14px 36px;
-    border: 1px solid var(--accent);
-    color: var(--accent);
+    border: 1px solid var(--border);
+    color: var(--A_bg);
     font-family: var(--sans);
     font-size: 0.78rem;
     font-weight: 500;
@@ -149,19 +156,19 @@ h1, h2 {
     text-decoration: none;
     transition: background 0.25s, color 0.25s;
 }
-.btn:hover { background: var(--accent); color: var(--bg); }
+.btn:hover { background: var(--muted); color: var(--border); }
 
 .btn-ghost {
     margin-left: 16px;
     border-color: var(--border);
-    color: var(--muted);
+    color: var(--links);
 }
-.btn-ghost:hover { background: var(--surface); color: var(--text); }
+.btn-ghost:hover { background: var(--muted); color: var(--A_text); }
 
 /* ── Footer ───────────────────────────────────── */
 footer {
     text-align: left;
-    color: var(--surface);
+    color: var(--card_bg);
 }
 
 /* ── Mobile ───────────────────────────────────── */

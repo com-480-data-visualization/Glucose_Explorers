@@ -1,5 +1,5 @@
 #home {
-    background: var(--bg);
+    background: var(--A_bg);
 }
 
 /* Decorative background circle */
@@ -17,7 +17,7 @@
 
 #home h1 {
     font-size: clamp(3rem, 8vw, 6.5rem);
-    color: var(--text);
+    color: var(--B_bg);
     margin-bottom: 28px;
 }
 
