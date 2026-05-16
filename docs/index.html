@@ -25,7 +25,20 @@
 
   <!-- ── Navigation ──────────────────────────────── -->
   <nav id="navbar">
-    <a href="#home" class="nav-logo">Data Visualization</a>
+    <a href="#home" class="nav-logo">
+      <div class="logo-swap">
+        <svg class="logo-default" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- first SVG path -->
+         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M41.975 20.682a1.32 1.32 0 0 0-1.32-1.32l-16.926.014c-2.236.002-2.79-3.108-.69-3.877l2.285-.838a1.223 1.223 0 0 0-.84-2.298l-11.98 4.355A9.91 9.91 0 0 0 5.98 26.04c.004 5.474 4.445 9.907 9.918 9.903l11.064-.01a1 1 0 0 0 .999-1v-.64a1 1 0 0 0-1.001-1l-3.736.004-.002-2 7.107-.006a1 1 0 0 0 .999-1.001v-.64a1 1 0 0 0-1.001-1l-4.827.005-.002-2 5.583-.005a1 1 0 0 0 .999-1v-.64a1 1 0 0 0-1.001-1l-5.583.005-.002-2 15.162-.012a1.32 1.32 0 0 0 1.32-1.322m-8.067 3.326 6.75-.005a3.32 3.32 0 0 0-.005-6.64l-16.926.013 2.285-.837c2.2-.807 2.832-3.618 1.188-5.288a3.22 3.22 0 0 0-3.399-.768l-11.98 4.355A11.91 11.91 0 0 0 3.98 26.042c.005 6.578 5.342 11.906 11.92 11.9l11.063-.008a3 3 0 0 0 2.998-3.003v-.64c0-.35-.061-.687-.172-1h.541a3 3 0 0 0 2.998-3.003v-.64a3 3 0 0 0-.458-1.59 3 3 0 0 0 1.21-2.41v-.64c0-.35-.061-.687-.172-1" fill="currentColor"/><path d="M40.984 30.565c0 1.6-1.318 2.858-2.998 2.86-1.68 0-3.001-1.255-3.002-2.855-.002-1.6 2.995-5.146 2.995-5.146s3.003 3.655 3.005 5.14m-1.008-8.641c.001.828-.894 1.5-1.998 1.502-1.105 0-2.001-.67-2.002-1.499 0-.828.895-1.5 2-1.501s2 .67 2 1.498" fill="currentColor"/></svg>
+        </svg>
+        <svg class="logo-hover" viewBox="0 -0.5 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- second SVG path -->
+       <svg width="49" height="49" viewBox="0 -0.5 49 49" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.95 4.091a3 3 0 0 0-2.997 3.003l.02 25a3 3 0 0 0 3.003 2.997l4.75-.004c.69 0 1.25-.56 1.249-1.25s.558-1.25 1.249-1.251l7.5-.007c.69 0 1.25.559 1.25 1.25a1.25 1.25 0 0 0 1.252 1.248l4.75-.004a3 3 0 0 0 2.997-3.002l-.02-25a3 3 0 0 0-3.003-2.998zm20.003 3.984-18 .015.015 18 18-.015zM16.971 29.589a1 1 0 0 1 1-1l4-.004a1 1 0 1 1 0 2l-3.999.003a1 1 0 0 1-1-.999m11-1.01a1 1 0 0 0 .001 2l4-.002a1 1 0 0 0-.002-2z" fill="currentColor"/><path d="M28.962 18.334c.002 2.134-1.757 3.811-3.997 3.813s-4.001-1.673-4.003-3.806 3.994-6.86 3.994-6.86 4.004 4.872 4.006 6.853" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="m28.974 33.08-8 .006.007 9 8-.007zm-10.002-1.993.011 13 12-.01-.01-13z" fill="currentColor"/><path d="M26.978 38.08a2 2 0 1 1-4 .004 2 2 0 0 1 4-.003" fill="currentColor"/></svg>
+        </svg>
+      </div>
+      Glucose Explorers
+    </a>
+
     <ul class="nav-links" id="navLinks">
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#about">Overview</a></li>
@@ -39,18 +52,29 @@
     </button>
   </nav>
 
-  <!-- ── Section 1 · Home ────────────────────────── -->
+<!-- ── Section 1 · Home ────────────────────────── -->
   <section id="home">
-    <div class="home-inner">
-      <div class="section-label">Welcome</div>
-      <h1><em>Glucose Explorers</em></h1>
-      <p class="home-sub">
-        
-      </p>
-      <div>
-        <a href="#about" class="btn btn-ghost">What is diabetes</a>
-        <a href="#risks" class="btn btn-ghost">Impacting factors</a>
+    <!-- Changed container class to home-grid -->
+    <div class="home-grid">
+      
+      <!-- Grouped text and buttons together on the left -->
+      <div class="home-content">
+        <div class="section-label">Welcome</div>
+        <h1><em>Decoding Diabetes</em></h1>
+        <p class="home-sub">
+          Explore the data. Understand the factors.
+        </p>
+        <div>
+          <a href="#about" class="btn btn-ghost">What is diabetes</a>
+          <a href="#risks" class="btn btn-ghost">Impacting factors</a>
+        </div>
       </div>
+
+      <!-- Visual stays on the right -->
+      <div class="home-visual">
+        <img src="assets/home_visual.svg" alt="Medical visualization">
+      </div>
+
     </div>
   </section>
 
@@ -66,7 +90,7 @@
           Insulin is a hormone that regulates blood glucose.
         </p>
         <br>
-        <a href="#contact" class="btn">Let's check some stats</a>
+        <a href="#world" class="btn">Let's check some stats</a>
       </div>
       <div class="about-image" id="about-silhouette">
         <!-- Organ hover overlay is injected on top of this image -->
@@ -116,7 +140,7 @@
         <div class="world-focus" id="world-focus"></div>
         <div class="world-metric-list" id="world-metric-list"></div>
         <p class="world-context" id="world-context"></p>
-        <a href="#risks" class="btn">Risk factors</a>
+        <a href="#risks" class="btn btn-ghost">Risk factors</a>
       </div>
 
     </div>
@@ -171,7 +195,7 @@ parameters shift the balance between health and diagnosis.</p>
       <div class="scene-container" id="scene-container">
         <!-- SVG injected by tabletop.js -->
       </div>
-      <a href="#spider" class="btn">My score</a>
+      <a href="#spider" class="btn btn-ghost">My score</a>
     </div>
 
   </section>

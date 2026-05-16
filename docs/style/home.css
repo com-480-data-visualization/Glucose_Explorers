@@ -1,19 +1,22 @@
 #home {
     background: var(--A_bg);
+    padding: 60px 20px; /* Optional: adds breathing room around the grid edges */
 }
 
-/* Decorative background circle */
-#home::before {
-    content: '';
-    position: absolute;
-    top: -200px; right: -200px;
-    width: 600px; height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200,169,110,0.07) 0%, transparent 70%);
-    pointer-events: none;
+/* Updated grid behavior */
+.home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the grid block inside the section */
+    align-items: center; /* Aligns items vertically in the center */
 }
 
-.home-inner { max-width: 800px; }
+/* Keeps your text block constraint pristine */
+.home-content { 
+    max-width: 800px; 
+}
 
 #home h1 {
     font-size: clamp(3rem, 8vw, 6.5rem);
@@ -32,4 +35,30 @@
     max-width: 480px;
     line-height: 1.7;
     margin-bottom: 48px;
+}
+
+.home-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-visual img {
+  width: 150%;
+  max-width: 700px;
+  height: auto;
+}
+
+/* Responsive fix for tablet/mobile devices */
+@media (max-width: 900px) {
+    .home-grid {
+        grid-template-columns: 1fr; /* Switch to single column stack */
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .home-sub {
+        margin-left: auto;
+        margin-right: auto; /* Centers paragraph on mobile if needed */
+    }
 }

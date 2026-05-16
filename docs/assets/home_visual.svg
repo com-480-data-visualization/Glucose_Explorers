@@ -1,0 +1,124 @@
+<svg
+  width="900"
+  height="320"
+  viewBox="0 0 900 280"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <style>
+    .line {
+      stroke: #2F4F88;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .animate-path {
+      stroke-dasharray: 2500;
+      stroke-dashoffset: 2500;
+      animation: draw 7s ease forwards;
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+
+  <style>
+    .lineB {
+      stroke: #2F4F88;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .animate-path {
+      stroke-dasharray: 2500;
+      stroke-dashoffset: 2500;
+      animation: draw 6s ease forwards;
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+
+  <!-- ECG Line -->
+  <path
+    class="line animate-path"
+    d="
+      M40 160
+      L120 160
+      Q135 160 145 145
+      Q155 130 165 160
+      Q175 210 190 60
+      Q200 20 215 210
+      Q225 260 240 170
+      Q255 130 280 160
+      Q300 180 340 160
+      Q370 150 390 130
+    "
+  />
+
+  <!-- Magnifying Glass (ViewBox expanded to 80 80 to prevent handle clipping) -->
+  <svg 
+    xmlns="http://www.w3.org/2000/svg"  
+    viewBox="-30 -15 100 100" 
+    xml:space="preserve">
+    <g
+    transform="scale(1.35)" 
+    fill="#2F4F88">
+        <path
+            class="lineB animate-path" 
+            d="M21 0C9.42 0 0 9.42 0 21s9.42 21 21 21c5.45 0 10.406 -2.104 14.142 -5.52 0.044 0.078 0.084 0.16 0.152 0.228l4.302 4.302a3.95 3.95 0 0 0 0.608 4.85l16.97 16.97C57.928 63.584 58.932 64 60 64s2.072 -0.416 2.828 -1.172S64 61.068 64 60s-0.416 -2.072 -1.172 -2.828l-16.97 -16.97c-1.268 -1.268 -3.318 -1.458 -4.84 -0.598l-4.31 -4.31c-0.068 -0.068 -0.148 -0.108 -0.228 -0.152A20.9 20.9 0 0 0 42 21C42 9.42 32.58 0 21 0m23.444 41.616 16.97 16.97c0.378 0.378 0.586 0.88 0.586 1.414s-0.208 1.036 -0.586 1.414a2.05 2.05 0 0 1 -2.828 0l-16.97 -16.97a1.994 1.994 0 0 1 0 -2.828 1.994 1.994 0 0 1 2.828 0M21 40C10.524 40 2 31.476 2 21S10.524 2 21 2s19 8.524 19 19 -8.524 19 -19 19"
+        />
+    </g>
+  </svg>
+
+  <!-- Blood Drop (Grouped and Centered inside the Magnifying Glass) -->
+  <g transform="translate(70, -15) scale(0.85)">
+    <!-- Blood Drop Outline -->
+    <path
+      class="line animate-path"
+      d="
+        M470 95
+        Q430 145 430 185
+        Q430 225 470 225
+        Q510 225 510 185
+        Q510 145 470 95
+      "
+    />
+
+    <!-- Blood Drop Highlight -->
+    <path
+      class="line animate-path"
+      d="
+        M485 185
+        Q485 200 470 205
+      "
+    />
+  </g>
+
+  <!-- Right ECG -->
+  <path
+    class="line animate-path"
+    d="
+      M550 160
+      Q580 145 610 160
+      L650 160
+      Q665 160 675 145
+      Q690 120 705 160
+      Q715 210 730 75
+      Q740 30 755 210
+      Q765 250 780 170
+      Q795 130 820 160
+      L860 160
+    "
+  />
+</svg>
