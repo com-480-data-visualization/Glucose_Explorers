@@ -66,9 +66,8 @@ function updateDensityChart(variable) {
 
     let width = svg.node().parentNode.clientWidth || 900;
     if (width > 920) width = 920;
-    const isMobile = width < 600;
-    const height = isMobile ? 380 : 460;
-    const margin = isMobile ? {top: 30, right: 20, bottom: 110, left: 55} : {top: 40, right: 70, bottom: 70, left: 80};
+    const height = 460;
+    const margin = {top: 40, right: 70, bottom: 70, left: 80};
 
     const diabValues = diabetics.map(d => d[variable]).filter(v => !isNaN(v) && v !== null);
     const nonDiabValues = nonDiabetics.map(d => d[variable]).filter(v => !isNaN(v) && v !== null);
@@ -90,20 +89,15 @@ function updateDensityChart(variable) {
    
     svg.append("path").datum(densityDiab).attr("fill", "none").attr("stroke", "#e74c3c").attr("stroke-width", 3).attr("d", line);
     svg.append("path").datum(densityNon).attr("fill", "none").attr("stroke", "#3498db").attr("stroke-width", 3).attr("d", line);
-    svg.append("text").attr("x", width / 2).attr("y", height - (isMobile ? 80 : 20)).attr("text-anchor", "middle").attr("fill", "white").attr("font-size", isMobile ? "13px" : "15px").text(variable.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase()));
+    svg.append("text").attr("x", width / 2).attr("y", height - 20).attr("text-anchor", "middle").attr("fill", "white").attr("font-size", "15px").text(variable.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase()));
 
-    svg.append("text").attr("transform", "rotate(-90)").attr("x", -(height / 2)).attr("y", isMobile ? 22 : 32).attr("text-anchor", "middle").attr("fill", "white").attr("font-size", isMobile ? "13px" : "15px").text("Density");
-    svg.append("g").attr("transform", `translate(0, ${height - margin.bottom})`).call(d3.axisBottom(xScale).ticks(isMobile ? 5 : 8));
+    svg.append("text").attr("transform", "rotate(-90)").attr("x", -(height / 2)).attr("y", 32).attr("text-anchor", "middle").attr("fill", "white").attr("font-size", "15px").text("Density");
+    svg.append("g").attr("transform", `translate(0, ${height - margin.bottom})`).call(d3.axisBottom(xScale).ticks(8));
     svg.append("g").attr("transform", `translate(${margin.left}, 0)`).call(d3.axisLeft(yScale).ticks(5));
-
-    if (isMobile) {
-        svg.append("text").attr("x", 20).attr("y", height - 75).text("Diabetics").attr("fill", "#e74c3c");
-        svg.append("text").attr("x", 20).attr("y", height - 55).text("Non-Diabetics").attr("fill", "#3498db");
-
-    } else {
-        svg.append("text").attr("x", width - 220).attr("y", 45).text("Diabetics").attr("fill", "#e74c3c");
-        svg.append("text").attr("x", width - 220).attr("y", 70).text("Non-Diabetics").attr("fill", "#3498db");
-    }
+    
+    svg.append("text").attr("x", width - 220).attr("y", 45).text("Diabetics").attr("fill", "#e74c3c");
+    svg.append("text").attr("x", width - 220).attr("y", 70).text("Non-Diabetics").attr("fill", "#3498db");
+    
 }
 
 function getBandwidth(values) {

@@ -107,21 +107,3 @@
 
 
 
-@media (max-width: 1100px) {
-    .spider-grid {
-        grid-template-columns: 1fr;
-        align-items: center;
-    }
-    .spider-info, #radar-container {
-        height: auto;
-    }
-}
-
-@media (max-width: 600px) {
-    #radar-container {
-        padding: 10px;
-    }
-    .slider-label {
-        font-size: 0.85rem;
-    }
-}
